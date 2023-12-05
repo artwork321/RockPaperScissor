@@ -1,3 +1,5 @@
+console.log("Hello World");
+
 function getComputerChoice() {
 
     // return a number from 0 to 2
@@ -25,4 +27,25 @@ function playRound(playerSelection, computerSelection) {
     rules = [[0, -1, 1], [1, 0, -1], [-1, 1, 0]];
 
     return rules[playerSelection][computerSelection];
+}
+
+function game() {
+    let playerPoint = 0, computerPoint = 0;
+
+    // play 5 rounds
+    for (let i = 0; i < 5; i++) {
+
+        // display score
+        console.log(computerPoint);
+        console.log(playerPoint);
+
+        // get both sides choices
+        playerChoice = prompt("Enter rock/paper/scissor: ");
+        computerSelection = getComputerChoice();
+
+        if (playRound(playerChoice, computerSelection) > 0)
+            playerPoint++;
+        else
+            computerPoint++;
+    }
 }

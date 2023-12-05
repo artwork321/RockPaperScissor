@@ -32,12 +32,12 @@ function playRound(playerSelection, computerSelection) {
 function game() {
     let playerPoint = 0, computerPoint = 0;
 
+    // display initial score
+    console.log("computer: ", computerPoint);
+    console.log("player: ", playerPoint);
+
     // play 5 rounds
     for (let i = 0; i < 5; i++) {
-
-        // display score
-        console.log("computer: ", computerPoint);
-        console.log("player: ", playerPoint);
 
         // get both sides choices
         playerChoice = prompt("Enter rock/paper/scissor: ");
@@ -47,7 +47,18 @@ function game() {
             playerPoint++;
         else
             computerPoint++;
+
+        // display score
+        console.log("computer: ", computerPoint);
+        console.log("player: ", playerPoint);
     }
+
+    // display winner
+    if (playerPoint > computerPoint)
+        console.log("Player WIN!");
+    else
+        console.log("Computer WIN!");
+
 }
 
 game();

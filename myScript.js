@@ -49,3 +49,5 @@ function game() {
             computerPoint++;
     }
 }
+
+game();

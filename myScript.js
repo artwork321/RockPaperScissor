@@ -1,4 +1,4 @@
-console.log("Hello World");
+document.write("Play in console.");
 
 function getComputerChoice() {
 
@@ -55,9 +55,9 @@ function game() {
 
     // display winner
     if (playerPoint > computerPoint)
-        console.log("Player WIN!");
+        document.write("Player WIN!");
     else
-        console.log("Computer WIN!");
+        document.write("Computer WIN!");
 
 }
 

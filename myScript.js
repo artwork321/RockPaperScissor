@@ -36,8 +36,8 @@ function game() {
     for (let i = 0; i < 5; i++) {
 
         // display score
-        console.log(computerPoint);
-        console.log(playerPoint);
+        console.log("computer: ", computerPoint);
+        console.log("player: ", playerPoint);
 
         // get both sides choices
         playerChoice = prompt("Enter rock/paper/scissor: ");

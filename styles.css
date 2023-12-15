@@ -1,30 +1,99 @@
 body {
     font-family: 'Courier New', Courier, monospace;
-    margin: 0 auto;
+    margin: 0;
 }
 
-#scores {
-    display: flex;
+/* Choice buttons */
+#choices-containers {
+    width: 80%;
     padding: 20px;
-    justify-content: space-between;
-}
-
-#scores > .item {
-    font-size: 30px;
-    background-color: peachpuff;
-    flex-shrink: 1;
-}
-
-#butts-containers {
     display: flex;
     justify-content: space-around;
-    margin: 0 auto;
+    margin: 10px auto;
+}
+
+.choice {
+    border: 5px solid burlywood;
+    padding: 20px;
+    border-radius: 10px;
+    display: block;
+    flex-shrink: 1;
 }
 
 .button {
     font-family: 'Courier New', Courier, monospace;
     font-size: 20px;
     padding: 20px;
-    flex-basis: 250px;
-    flex-shrink: 1;
+    border: 3px solid palevioletred;
+    border-radius: 20px;
+    background-color: white;
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.button:hover {
+    background-color: rgb(255, 216, 222);
+    color: rgb(216, 73, 121);
+    font-weight: bold;
+}
+
+.icon {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+/* Score display */
+#scores {
+    background-color: rgb(32, 28, 48);
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 200px;
+}
+
+.item {
+    color: white;
+    font-size: 30px;
+}
+
+/* Choice display */
+.inform {
+    width: 100%;
+    margin: 50px 0px 10px;
+}
+
+#img-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.choice-img {
+    display: inline;
+    width: 150px;
+    height: 150px;
+}
+
+.announce {
+    display: block;
+    text-align: center; 
+    font-size: 15px;
+    color: rgb(32, 28, 48);
+}
+
+/* End game */
+#winner {
+    text-align: center;
+    font-size: 30px;
+    border: 5px solid rgb(246, 218, 223);
+    background-color: palevioletred;
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 50px;
+}
+
+.restart {
+    max-width: 300px;
+    width: 30%;
 }

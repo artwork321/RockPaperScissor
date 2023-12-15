@@ -8,12 +8,20 @@ divButtons.setAttribute("id", "butts-containers");
 for (let i = 0; i <= 2; i++) {
     let button = document.createElement("button");
     button.textContent = choices[i];
-    button.classList.add(choices[i]);
+    button.setAttribute("id", choices[i]);
 
     divButtons.appendChild(button);
   }
 
-  document.body.appendChild(divButtons);
+
+document.body.appendChild(divButtons);
+
+const buttons = document.querySelectorAll("button");
+
+// Add events for 3 buttons
+buttons.forEach((button) => {
+    button.addEventListener('click', playRound(button.getAttribute("id")));
+})
 
 function getComputerChoice() {
 
@@ -33,47 +41,38 @@ function convertSymbol(playerSelection) {
     }
 }
 
-function playRound(playerSelection, computerSelection) {
+// Score handling
+function updateScore(decision) {
+    const player = document.querySelector(".player-score");
+    const computer = document.querySelector(".comp-score");
+
+    let playerPoint = parseInt(player.textContent, 10);
+    let computerPoint = parseInt(player.textContent, 10);
+
+    if (decision > 0) {
+        playerPoint++;
+    }
+    else{
+        computerPoint++;
+    }
+
+    player.textContent = playerPoint;
+    computer.textContent = computerPoint;
+}
+
+function playRound(playerSelection) {
     playerSelection = convertSymbol(playerSelection);
+    let computerSelection = getComputerChoice();
 
     // Rules to decide the outcome of the round
     // 1 is win, 0 is tie, -1 is lose
     // rows from the first one to the last one are for rock, paper, scissor respectively 
-    rules = [[0, -1, 1], [1, 0, -1], [-1, 1, 0]];
+    let rules = [[0, -1, 1], [1, 0, -1], [-1, 1, 0]];
 
-    return rules[playerSelection][computerSelection];
+    let decision = rules[playerSelection][computerSelection];
+
+    updateScore(decision);
 }
 
-function game() {
-    let playerPoint = 0, computerPoint = 0;
 
-    // display initial score
-    console.log("computer: ", computerPoint);
-    console.log("player: ", playerPoint);
 
-    // play 5 rounds
-    while (playerPoint < 5 || computerPoint < 5) {
-
-        // get both sides choices
-        playerChoice = prompt("Enter rock/paper/scissor: ");
-        computerSelection = getComputerChoice();
-
-        if (playRound(playerChoice, computerSelection) > 0)
-            playerPoint++;
-        else
-            computerPoint++;
-
-        // display score
-        console.log("computer: ", computerPoint);
-        console.log("player: ", playerPoint);
-    }
-
-    // display winner
-    if (playerPoint > computerPoint)
-        document.write("Player WIN!");
-    else
-        document.write("Computer WIN!");
-
-}
-
-game();

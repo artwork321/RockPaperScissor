@@ -1,0 +1,30 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0 auto;
+}
+
+#scores {
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+}
+
+#scores > .item {
+    font-size: 30px;
+    background-color: peachpuff;
+    flex-shrink: 1;
+}
+
+#butts-containers {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+}
+
+.button {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    padding: 20px;
+    flex-basis: 250px;
+    flex-shrink: 1;
+}

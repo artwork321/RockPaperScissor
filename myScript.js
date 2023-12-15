@@ -9,6 +9,7 @@ for (let i = 0; i <= 2; i++) {
     let button = document.createElement("button");
     button.textContent = choices[i];
     button.setAttribute("id", choices[i]);
+    button.classList.add("button");
 
     divButtons.appendChild(button);
 }

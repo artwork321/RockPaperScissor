@@ -1,4 +1,19 @@
-document.write("Play in console.");
+// Create div to contains 3 buttons
+let choices = ["rock", "paper", "scissor"];
+
+let divButtons = document.createElement("div");
+divButtons.setAttribute("id", "butts-containers");
+
+// Create 3 buttons
+for (let i = 0; i <= 2; i++) {
+    let button = document.createElement("button");
+    button.textContent = choices[i];
+    button.classList.add(choices[i]);
+
+    divButtons.appendChild(button);
+  }
+
+  document.body.appendChild(divButtons);
 
 function getComputerChoice() {
 
@@ -37,7 +52,7 @@ function game() {
     console.log("player: ", playerPoint);
 
     // play 5 rounds
-    for (let i = 0; i < 5; i++) {
+    while (playerPoint < 5 || computerPoint < 5) {
 
         // get both sides choices
         playerChoice = prompt("Enter rock/paper/scissor: ");

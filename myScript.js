@@ -6,7 +6,7 @@ divButtons.setAttribute("id", "choices-containers");
 
 
 // Create 3 buttons
-for (let i = 0; i <= 2; i++) {
+for (let i = 0; i < 3; i++) {
 
     // div containing image and button
     let div = document.createElement("div");

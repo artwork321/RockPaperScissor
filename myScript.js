@@ -11,7 +11,7 @@ for (let i = 0; i <= 2; i++) {
     button.setAttribute("id", choices[i]);
 
     divButtons.appendChild(button);
-  }
+}
 
 
 document.body.appendChild(divButtons);
@@ -20,7 +20,7 @@ const buttons = document.querySelectorAll("button");
 
 // Add events for 3 buttons
 buttons.forEach((button) => {
-    button.addEventListener('click', playRound(button.getAttribute("id")));
+    button.addEventListener('click', () => { playRound(button.getAttribute("id")) });
 })
 
 function getComputerChoice() {
@@ -47,17 +47,19 @@ function updateScore(decision) {
     const computer = document.querySelector(".comp-score");
 
     let playerPoint = parseInt(player.textContent, 10);
-    let computerPoint = parseInt(player.textContent, 10);
+    let computerPoint = parseInt(computer.textContent, 10);
 
     if (decision > 0) {
         playerPoint++;
     }
-    else{
+    else {
         computerPoint++;
     }
 
     player.textContent = playerPoint;
     computer.textContent = computerPoint;
+
+    endgame(playerPoint, computerPoint);
 }
 
 function playRound(playerSelection) {
@@ -74,5 +76,18 @@ function playRound(playerSelection) {
     updateScore(decision);
 }
 
+function endgame(playerPoint, computerPoint) {
+    let final = document.createElement("p");
+
+    if (playerPoint === 5) {
+        final.textContent = "player WIN!";
+        document.body.appendChild(final);
+    }
+    else if (computerPoint === 5) {
+        final.textContent = "computer WIN!";
+        document.body.appendChild(final);
+    }
+
+}
 
 

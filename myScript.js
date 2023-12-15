@@ -59,7 +59,9 @@ function updateScore(decision) {
     player.textContent = playerPoint;
     computer.textContent = computerPoint;
 
-    endgame(playerPoint, computerPoint);
+    if(endgame(playerPoint, computerPoint)){
+        restart();
+    }
 }
 
 function playRound(playerSelection) {
@@ -78,16 +80,46 @@ function playRound(playerSelection) {
 
 function endgame(playerPoint, computerPoint) {
     let final = document.createElement("p");
+    final.setAttribute("id", "winner");
 
     if (playerPoint === 5) {
         final.textContent = "player WIN!";
         document.body.appendChild(final);
+        return true;
     }
     else if (computerPoint === 5) {
         final.textContent = "computer WIN!";
         document.body.appendChild(final);
+        return true;
     }
+    return false;
+}
 
+function restart() {
+
+    // Display restart button
+    let divRestart = document.createElement("div");
+    divRestart.setAttribute("id", "restart");
+
+    let button = document.createElement("button");
+    button.classList.add("restart");
+    button.textContent = "Do you want to restart?";
+
+    divRestart.appendChild(button);
+
+    document.body.appendChild(divRestart);
+
+    // Restart Event
+    const player = document.querySelector(".player-score");
+    const computer = document.querySelector(".comp-score");
+
+    button.addEventListener("click", () => {
+        player.textContent = 0;
+        computer.textContent = 0;
+
+        document.body.removeChild(document.querySelector("#winner"));
+        document.body.removeChild(divRestart);
+    })
 }
 
 
